@@ -458,6 +458,10 @@ PrefabInstance:
       propertyPath: gravityModifier
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1309570090, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
+      propertyPath: m_Constraints
+      value: 122
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
 --- !u!1 &1433626582
