@@ -721,9 +721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab:
-  - {fileID: 151586, guid: 95927758d3a4cef4ba6c4318f06876fd, type: 3}
-  - {fileID: 134104, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
-  - {fileID: 114304, guid: 3daef342e8f3f9548b04424eac7d4d0d, type: 3}
+  - {fileID: 7566098380310673643, guid: 35cc56244ab779e48acf3f6f3d05a641, type: 3}
+  - {fileID: 862598366848249704, guid: f3824c5a923040043b9c3d30020d2177, type: 3}
+  - {fileID: 7246867084386641809, guid: 0472456c7a539c748968a81f52c0ea2c, type: 3}
 --- !u!1 &2014335011
 GameObject:
   m_ObjectHideFlags: 0
