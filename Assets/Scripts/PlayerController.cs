@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float gravityModifier;
     private bool isOnGround = true;
-    public bool gameOver = false;
+    public bool gameOver, doubleJump = false;
     private Animator playerAnim;
     public ParticleSystem explosionParticle, dirtSplatterParticle;
     public AudioClip jumpSound, crashSound;
@@ -27,11 +27,20 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && !gameOver)
         {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+            doubleJump = true;
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerAnim.SetTrigger("Jump_trig");
             dirtSplatterParticle.Stop();
             playerAudio.PlayOneShot(jumpSound, 1.0f);
+            
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && isOnGround == false && doubleJump == true)
+        {
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerAnim.SetTrigger("Jump_trig");
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
+            doubleJump = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
