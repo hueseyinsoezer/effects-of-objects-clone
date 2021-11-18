@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true && !gameOver)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
             isOnGround = false;
             doubleJump = true;
@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && isOnGround == false && doubleJump == true)
+        else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround && doubleJump)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            playerAnim.SetTrigger("Jump_trig");
+            playerAnim.Play("Running_Jump",3,0f);
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             doubleJump = false;
         }
