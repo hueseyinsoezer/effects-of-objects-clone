@@ -32,8 +32,7 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerAnim.SetTrigger("Jump_trig");
             dirtSplatterParticle.Stop();
-            playerAudio.PlayOneShot(jumpSound, 1.0f);
-            
+            playerAudio.PlayOneShot(jumpSound, 1.0f);           
         }
         else if (Input.GetKeyDown(KeyCode.Space) && !isOnGround && doubleJump)
         {
@@ -41,6 +40,16 @@ public class PlayerController : MonoBehaviour
             playerAnim.Play("Running_Jump",3,0f);
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             doubleJump = false;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            doubleSpeed = true;
+            playerAnim.SetFloat("Speed_Multiplier", 2.0f);
+        }
+        else if (doubleSpeed)
+        {
+            doubleSpeed = false;
+            playerAnim.SetFloat("Speed_Multilier", 1.0f);
         }
     }
     private void OnCollisionEnter(Collision collision)
